@@ -21,8 +21,6 @@ custom_fill_colors <- c("#12436D", "#28A197", "#801650", "#F46A25", "#3D3D3D", "
 
 apply_custom_theme <- function(p) {
   p +
-    scale_fill_manual(values = custom_fill_colors) +
-    scale_color_manual(values = custom_fill_colors) +
     custom_ggplot_theme() +
     scale_y_continuous(expand = expansion(mult = c(0, 0)))  # Y-axis starts at 0
 }

@@ -25,14 +25,14 @@ Perf_Clean <- Perf_TS_Raw %>%
 
 Activity_Winters <- Activity_Clean %>%
   filter(month %in% c(1,2,12)) %>%
-  mutate(winter = ifelse(month<12,paste0(year-1,"-",year),paste0(year,"-",year+1))) %>%
+  mutate(winter = ifelse(month<12,paste0(year-2001,"-",year-2000),paste0(year-2000,"-",year-1999))) %>%
   group_by(winter) %>%
   select(-Period,-year,-month) %>%
   summarise(across(everything(),sum)) 
 
 Perf_Winters <- Perf_Clean %>%
   filter(month %in% c(1,2,12)) %>%
-  mutate(winter = ifelse(month<12,paste0(year-1,"-",year),paste0(year,"-",year+1))) %>%
+  mutate(winter = ifelse(month<12,paste0(year-2001,"-",year-2000),paste0(year-2000,"-",year-1999))) %>%
   group_by(winter) %>%
   select(-Period,-year,-month) %>%
   summarise(across(everything(),sum)) %>%
